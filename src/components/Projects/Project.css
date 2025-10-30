@@ -1,0 +1,110 @@
+
+.projects-page-section {
+  padding: 5px 0; 
+  background-image: url('../../assets/b8.jpeg');
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  }
+.projects-page-heading { font-size: 2.5em; font-weight: 700; color: #1a202c; text-align: center; margin-bottom: 1rem; }
+.projects-page-subheading { font-size: 1.1rem; font-weight: 400; color: #6c757d; text-align: center; max-width: 700px; margin: 0 auto 3rem auto; line-height: 1.6; }
+
+/* --- 2-Column Grid Layout --- */
+
+/* (Grid styles remain the same) */
+.project-layout-wrapper { display: grid; grid-template-columns: 3fr 1fr; gap: 3rem; max-width: 1200px; margin: 0 auto; }
+
+/* --- Main content (left column) --- */
+
+/* (Main content styles remain the same) */
+
+/* --- Sidebar (right column) --- */
+
+/* (Sidebar styles remain the same) */
+.project-sidebar { position: sticky; top: 100px; align-self: start; height: fit-content; }
+
+/* --- Sidebar Headings --- */
+.sidebar-heading {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #343a40;
+  margin-bottom: 1rem;
+}
+.sidebar-heading.tags-heading {
+  margin-top: 2rem; /* Add space above the tags heading */
+}
+
+/* --- NEW: Category Filter Styles --- */
+.project-category-filter {
+  display: flex;
+  flex-direction: column; /* Stack category buttons */
+  gap: 0.75rem; /* Space between category buttons */
+  align-items: flex-start; /* Align buttons left */
+}
+
+.project-category-button {
+  background-color: #e9ecef; /* Different base color */
+  color: #495057;
+  font-size: 0.9em;
+  font-weight: 600;
+  padding: 0.6rem 1.2rem; /* Slightly larger padding */
+  border-radius: 200px; /* Less rounded */
+  border: 1px solid #dee2e6;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+  width: 100%; /* Make buttons full width of sidebar area */
+  text-align: left; /* Align text left */
+}
+
+.project-category-button:hover {
+  background-color: #dee2e6;
+  border-color: #adb5bd;
+  transform: translateY(-1px); /* Subtle lift */
+}
+
+.project-category-button.active,
+.project-category-button.active:hover {
+  background-color: var(--primary-color); /* Primary color when active */
+  color: #ffffff;
+  border-color: var(--primary-color);
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2); /* Add shadow when active */
+}
+/* --- END: Category Filter Styles --- */
+
+
+/* --- Tag Filter Styles (Inside Sidebar) --- */
+
+/* (Tag filter styles remain the same) */
+.project-tags-filter { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.project-tag-button { background-color: #f1f3f5; color: #495057; font-size: 0.85em; font-weight: 600; padding: 0.5rem 1rem; border-radius: 16px; border: 1px solid #f1f3f5; cursor: pointer; transition: all 0.2s ease-out; }
+.project-tag-button:hover { transform: translateY(-2px); background-color: #e9ecef; border-color: #dee2e6; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); }
+.project-tag-button.active, .project-tag-button.active:hover { background-color: var(--primary-color); color: #ffffff; border-color: var(--primary-color); transform: translateY(0); box-shadow: none; }
+
+
+/* --- Search Bar Styles (Inside Main Content) --- */
+
+/* (Search bar styles remain the same) */
+.project-search-bar { position: relative; margin-bottom: 3rem; }
+.search-icon { position: absolute; top: 50%; left: 1rem; transform: translateY(-50%); color: #adb5bd; }
+.project-search-bar input { width: 100%; padding: 0.8rem 1rem 0.8rem 2.75rem; font-size: 1rem; border: 1px solid #dee2e6; border-radius: 8px; transition: border-color 0.2s ease, box-shadow 0.2s ease; }
+.project-search-bar input:focus { outline: none; border-color: var(--primary-color); box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15); }
+
+
+/* --- Project List Styles --- */
+
+/* (List styles remain the same) */
+.no-results-text { text-align: center; font-size: 1.2rem; color: #6c757d; margin-top: 3rem; }
+
+
+/* --- Responsive --- */
+@media (max-width: 992px) { /* ... */ }
+/* (Responsive styles remain the same) */
+@media (max-width: 992px) {
+  .project-layout-wrapper { grid-template-columns: 1fr; }
+  .project-sidebar { position: static; order: -1; margin-bottom: 2rem; }
+  .project-category-filter { flex-direction: row; flex-wrap: wrap; justify-content: center; } /* Horizontal wrap on mobile */
+  .project-category-button { width: auto; } /* Allow buttons to shrink */
+  .project-tags-filter { justify-content: center; }
+  .sidebar-heading { text-align: center; }
+}

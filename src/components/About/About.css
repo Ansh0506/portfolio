@@ -1,0 +1,187 @@
+/* src/components/About/About.css */
+
+.about-section {
+  padding: 80px 0;
+  background-image: url('../../assets/b4.jpg'); /* This is the dot pattern background */
+  background-size: cover;
+  background-position: center;
+  overflow-x: hidden;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start; /* Aligns items to the top */
+  gap: 4rem;
+}
+
+/* --- Image Column --- */
+.about-image-container {
+  flex-basis: 40%;
+  max-width: 400px;
+}
+
+.about-photo {
+  width: 100%;
+  height: 900px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+/* --- Text Column --- */
+.about-text-container {
+  flex-basis: 60%;
+}
+
+.about-heading {
+  font-size: 2.5em;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+/* --- THIS IS THE CORRECTED UNDERLINE --- */
+.about-heading::after {
+  content: '';
+  position: absolute;
+  bottom: -8px; 
+  left: 0;
+  width: 80px; /* Short width */
+  height: 5px; /* Thick */
+  background-color: var(--primary-color);
+  border-radius: 2px;
+}
+/* --- END OF UNDERLINE STYLE --- */
+
+.about-paragraph {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+}
+
+.about-paragraph strong {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.about-subheading {
+  font-size: 1.5em;
+  font-weight: 600;
+  color: #343a40;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  border-left: 4px solid var(--primary-color);
+  padding-left: 1rem;
+}
+
+.achievements-list {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 1.5rem;
+}
+
+.achievements-list li {
+  font-size: 1.1rem;
+  color: var(--text-color);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: flex-start;
+}
+
+.achievements-list li::before {
+  content: '✓';
+  color: var(--primary-color);
+  font-weight: 700;
+  margin-right: 12px;
+  margin-top: 2px;
+}
+
+/* --- THIS IS THE CORRECTED BUTTON STYLING --- */
+.about-button-container {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* Base style for both buttons */
+.about-button-container .cta-button {
+  padding: 0.8rem 1.8rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+/* Primary "Resume" Button */
+.about-button-container .cta-button.primary {
+  background-color: var(--primary-color); 
+  color: white;
+  border: 2px solid var(--primary-color);
+}
+
+.about-button-container .cta-button.primary:hover {
+  filter: brightness(1.1);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+/* Secondary "Contact Me" Button */
+.about-button-container .cta-button.secondary {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+.about-button-container .cta-button.secondary:hover {
+  background-color: rgba(0, 123, 255, 0.08);
+  transform: translateY(-3px);
+}
+/* --- END OF BUTTON STYLING --- */
+
+/* --- Animation --- */
+.about-image-container, .about-text-container {
+  opacity: 0;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.about-image-container {
+  transform: translateX(-50px);
+}
+.about-text-container {
+  transform: translateX(50px);
+}
+.about-image-container.animate-in, .about-text-container.animate-in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+  .about-section {
+    padding: 60px 0;
+  }
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .about-heading::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .about-subheading {
+    text-align: left;
+  }
+  .achievements-list {
+    text-align: left;
+  }
+  .about-button-container {
+    justify-content: center;
+  }
+}

@@ -1,0 +1,165 @@
+/* src/components/Hero/Hero.css */
+
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 8rem 2rem;
+  background-image: url('../../assets/b3.jpg'); /* This is the dot pattern background */
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+.hii{
+  margin-left: 10rem;
+}
+.hero-content-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  width: 100%;
+  max-width: 1140px;
+}
+
+/* --- Parallelogram Image (Left Column) --- */
+.hero-image-container {
+  width: 400px;
+  height: 600px;
+  transform: skewX(-12deg);
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
+  
+  /* Animation: Starts off-screen to the left */
+  opacity: 0;
+  transform: translateX(-50px) skewX(-12deg);
+  transition: opacity 0.8s 0.2s ease-out, transform 0.8s 0.2s ease-out;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: skewX(8deg) scale(1.2);
+}
+
+/* --- Text Content (Right Column) --- */
+.hero-text-container {
+  /* Animation: Starts off-screen to the right */
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.8s 0.2s ease-out, transform 0.8s 0.2s ease-out;
+}
+
+/* --- Animation Final State --- */
+.hero-image-container.animate-in {
+  opacity: 1;
+  transform: translateX(0) skewX(-12deg); /* Slides in from left */
+}
+.hero-text-container.animate-in {
+  opacity: 1;
+  transform: translateX(0); /* Slides in from right */
+}
+
+.hero-text-container h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 1rem;
+}
+
+.hero-text-container p {
+  font-size: 1.2rem;
+  color: #4a5568;
+  line-height: 1.7;
+  max-width: 550px;
+  margin-bottom: 2rem;
+}
+
+/* --- NEW: Social Icon Styles --- */
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem; /* Space between icons */
+  margin-bottom: 2rem; /* Space between icons and buttons */
+}
+
+.social-icons a {
+  color: #495057; /* Icon color */
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.social-icons a svg {
+  width: 24px;
+  height: 24px;
+}
+
+.social-icons a:hover {
+  color: var(--primary-color);
+  transform: scale(1.1);
+}
+/* --- END: Social Icon Styles --- */
+
+.hero-cta-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+/* --- CTA Button Styles (Unchanged) --- */
+.cta-button { padding: 0.8rem 1.8rem; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; text-decoration: none; }
+.cta-button.primary { background-color: var(--primary-color); color: white; border: 2px solid var(--primary-color); }
+.cta-button.primary:hover { filter: brightness(1.1); transform: translateY(-3px); }
+.cta-button.secondary { background-color: transparent; color: var(--primary-color); border: 2px solid var(--primary-color); }
+.cta-button.secondary:hover { background-color: rgba(0, 123, 255, 0.08); transform: translateY(-3px); }
+
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+  .hero-content-wrapper {
+    flex-direction: column; /* Stacks image on top of text */
+    text-align: center;
+    gap: 2rem;
+  }
+  
+  /* Center the icons on mobile */
+  .social-icons {
+    justify-content: center;
+  }
+  
+  .hero-cta-buttons {
+    justify-content: center;
+  }
+  
+  .hero-image-container {
+    width: 250px;
+    height: 320px;
+    transform: skewX(-8deg);
+    margin-bottom: 1rem;
+    
+    /* Center the animation on mobile */
+    opacity: 0;
+    transform: translateY(50px) skewX(-8deg);
+  }
+  
+  .hero-text-container {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  
+  /* Update animation for mobile */
+  .hero-image-container.animate-in {
+    opacity: 1;
+    transform: translateY(0) skewX(-8deg);
+  }
+  .hero-text-container.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .hero-image {
+    transform: skewX(8deg) scale(1.2);
+  }
+}

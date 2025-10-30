@@ -1,0 +1,222 @@
+/* src/components/Contact/Contact.css */
+
+.contact-section {
+  padding-top: 80px; /* Added some top padding back */
+  padding-bottom: 130px;
+  background-image: url('../../assets/b3.jpg'); /* Your background image */
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  overflow-x: hidden;
+}
+
+.contact-heading {
+  font-size: 2.5em;
+  font-weight: 700;
+  color: #1a202c; /* Or #ffffff if text is hard to read on background */
+  text-align: center;
+}
+
+.contact-subheading {
+  font-size: 1.1rem;
+  color: #495057; /* Or #f0f0f0 for light text */
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 3rem auto;
+}
+
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 2rem;
+  opacity: 0;
+  transition: opacity 0.8s ease-out;
+}
+
+.contact-wrapper.animate-in {
+  opacity: 1;
+}
+
+/* --- Base Card Style (MODIFIED) --- */
+.contact-info-container,
+.contact-form-container {
+  /* --- KEY CHANGES --- */
+  background-color: rgba(255, 255, 255, 0.40); /* Semi-transparent white */
+  backdrop-filter: blur(10px); /* Frosted glass effect */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Fainter border */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05); /* Lighter shadow */
+  /* --- END KEY CHANGES --- */
+  
+  padding: 2.5rem;
+  border-radius: 16px;
+}
+/* --- END Card Style --- */
+
+
+/* --- Column 1: Info --- */
+.contact-info-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-info-header {
+  text-align: center;
+}
+
+.contact-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 1.5rem auto;
+  border: 3px solid var(--primary-color);
+}
+
+.contact-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.contact-info-header h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #212529; /* Dark text for readability */
+  margin-bottom: 0.75rem;
+}
+
+.contact-info-header p {
+  font-size: 1rem;
+  color: #495057; /* Dark text */
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.contact-info-details {
+  margin-bottom: 2rem;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.info-item:hover {
+  background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent hover */
+}
+
+.info-item svg {
+  width: 20px;
+  height: 20px;
+  color: var(--primary-color);
+  flex-shrink: 0;
+}
+
+.info-item span {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #343a40;
+}
+
+.contact-info-socials {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: auto;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.05); /* Fainter border */
+}
+
+.contact-info-socials a {
+  color: #495057;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.contact-info-socials a svg {
+  width: 24px;
+  height: 24px;
+}
+.contact-info-socials a:hover {
+  color: var(--primary-color);
+  transform: scale(1.1);
+}
+
+/* --- Column 2: Form --- */
+.contact-form-container h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #212529;
+  margin-bottom: 0.75rem;
+}
+
+.contact-form-container p {
+  font-size: 1rem;
+  color: #495057;
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.form-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 1rem;
+  color: #6c757d;
+  width: 16px;
+  height: 16px;
+}
+.form-group textarea ~ .form-icon {
+  top: 1.1rem; 
+  transform: translateY(0);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  padding-left: 3rem;
+  font-size: 1rem;
+  /* --- Fainter fields to match --- */
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.1); 
+  border-radius: 8px;
+  color: #212529;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #6c757d;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+}
+
+.send-button {
+  width: 100%;
+  padding: 0.8rem 1.8rem;
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+/* --- Responsive --- */
+@media (max-width: 992px) {
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+  }
+}

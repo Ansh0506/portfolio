@@ -1,0 +1,152 @@
+/* src/components/Writing/Writing.css */
+
+.writing-section {
+  padding: 80px 0;
+  background-image: url('../../assets//b6.jpg');
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.writing-heading, .writing-subheading, .loading-text, .no-results-text {
+  text-align: center;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.writing-heading {
+  font-size: 2.5em;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 1rem;
+}
+
+.writing-subheading {
+  font-size: 1.1rem;
+  color: #6c757d;
+  margin-bottom: 3rem;
+}
+
+.loading-text, .no-results-text {
+  font-size: 1.2rem;
+  color: #6c757d;
+  margin-top: 3rem;
+}
+
+/* --- 2-Column Grid Layout --- */
+.writing-layout-wrapper {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- Main content (left) --- */
+
+
+/* --- Sidebar (right) --- */
+.writing-sidebar {
+  position: sticky; 
+  top: 100px; 
+  align-self: start;
+}
+
+.sidebar-heading {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #343a40;
+  margin-bottom: 1rem;
+}
+/* --- END: 2-Column Grid --- */
+
+
+/* --- Tag Filter Bar --- */
+.blog-tags-filter {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.tag-filter-button {
+  background-color: #f1f3f5;
+  color: #495057;
+  font-size: 0.85em;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 16px;
+  border: 1px solid #f1f3f5;
+  cursor: pointer;
+  
+  /* --- MODIFIED: Added transform to transition --- */
+  transition: all 0.2s ease-out; /* Use 'all' or specify 'transform, background-color, border-color, color' */
+  
+  width: auto; 
+}
+
+/* --- NEW: Tag Hover Animation --- */
+.tag-filter-button:hover {
+  transform: translateY(-2px); /* Lifts the tag up */
+  background-color: #e9ecef; /* Slightly darker background on hover */
+  border-color: #dee2e6;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Add a subtle shadow */
+}
+
+.tag-filter-button.active,
+.tag-filter-button.active:hover { /* Ensure active state overrides hover */
+  background-color: var(--primary-color);
+  color: #ffffff;
+  border-color: var(--primary-color);
+  transform: translateY(0); /* Don't lift if active */
+  box-shadow: none; /* No shadow if active */
+}
+/* --- END: Tag Hover --- */
+
+
+/* --- Search Bar --- */
+.blog-search-bar {
+  position: relative;
+  margin-bottom: 3rem; 
+}
+
+/* (Search bar styles remain unchanged) */
+.search-icon { position: absolute; top: 50%; left: 1rem; transform: translateY(-50%); color: #adb5bd; }
+.blog-search-bar input { width: 100%; padding: 0.8rem 1rem 0.8rem 2.75rem; font-size: 1rem; border: 1px solid #dee2e6; border-radius: 8px; transition: border-color 0.2s ease, box-shadow 0.2s ease; }
+.blog-search-bar input:focus { outline: none; border-color: var(--primary-color); box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15); }
+
+/* --- Blog List --- */
+.blog-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* --- (Blog item styles remain unchanged) --- */
+.blog-item { display: block; background-color: #ffffff; border: 1px solid #e9ecef; border-radius: 12px; padding: 2rem; opacity: 0; transform: translateY(20px); text-decoration: none !important; transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.5s ease-out; }
+.blog-item:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 15px 30px rgba(0, 123, 255, 0.1); border-color: var(--primary-color); text-decoration: none !important; }
+.blog-item:hover .blog-title { color: var(--primary-color); }
+.blog-title { font-size: 1.5em; font-weight: 600; color: #212529; margin-bottom: 0.5rem; line-height: 1.4; transition: color 0.2s ease; }
+.blog-snippet { font-size: 1rem; color: #6c757d; line-height: 1.6; margin-bottom: 1.5rem; }
+.blog-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.blog-date { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; color: #6c757d; font-weight: 500; }
+.blog-date svg { width: 14px; height: 14px; }
+.blog-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.blog-tag { display: inline-block; background-color: #f1f3f5; color: #495057; font-size: 0.8em; font-weight: 600; padding: 0.3rem 0.8rem; border-radius: 16px; transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease; }
+.blog-tag:hover { transform: translateY(-2px); background-color: var(--primary-color); color: #ffffff; cursor: pointer; }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.blog-item.animate-in { animation: fadeInUp 0.5s ease-out forwards; }
+
+/* --- Responsive --- */
+@media (max-width: 992px) {
+  .writing-layout-wrapper { grid-template-columns: 1fr; }
+  .writing-sidebar { position: static; order: -1; margin-bottom: 2rem; }
+  .blog-tags-filter { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+  .sidebar-heading { text-align: center; }
+}
+
+@media (max-width: 768px) {
+  .blog-title { font-size: 1.3em; }
+  .blog-snippet { font-size: 0.95rem; }
+}

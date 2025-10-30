@@ -1,0 +1,121 @@
+:root {
+  --bg-color: #ffffff; /* Changed to white */
+  --text-color:#212529; /* Changed to a dark color for readability */
+  --primary-color: #007bff; /* A standard blue that works well on white */
+  --card-color: #f8f9fa;   /* A very light gray for cards */
+  --border-color: #dee2e6; /* A light gray for borders */
+  --glass-bg: rgba(0, 0, 0, 0.03);
+  --glass-border: rgba(0, 0, 0, 0.1);
+  --active-link-bg: rgba(0, 0, 0, 0.08);
+  --active-link-color: #000000;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 2. App Layout =============================================== */
+
+/* This container ensures the footer sticks to the bottom */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* The main content area */
+main {
+  /* flex: 1 makes the main content grow to fill available space */
+  flex: 1;
+  width: 100%;
+  
+  /* Center the content and limit its max width for readability */
+  max-width: 100%;
+  margin: 0;
+}
+
+/* 3. Typography & Common Elements ============================== */
+
+h1, h2, h3 {
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: #1a1d24; /* Changed to a dark color for headings */
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+}
+
+h2 {
+  font-size: 2rem;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.5rem;
+  margin-top: 2rem; /* Add space above section headers */
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: opacity 0.2s ease-in-out;
+}
+
+a:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+/* A simple card style you can apply to project or skill sections */
+.card {
+    background-color: var(--card-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 1rem;
+}
+
+
+/* 4. Responsive Design (Media Queries) ========================= */
+
+/* Styles for tablets and larger screens */
+@media (min-width: 768px) {
+  body {
+    font-size: 18px; /* Slightly larger base font on bigger screens */
+  }
+  
+  h1 {
+    font-size: 3.5rem;
+  }
+  
+  h2 {
+    font-size: 2.5rem;
+  }
+}
+
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(20px); /* Start 20px lower than its final position */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* This class will be added when the element is visible */
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0); /* Move to its final position */
+}
