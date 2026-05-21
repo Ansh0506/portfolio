@@ -4,7 +4,10 @@
 .skills-section {
   padding: 60px 0;
   /* --- KEY CHANGE --- */
-  background-color: transparent; /* Makes the whole section background invisible */
+  background-color: #0a0a0a;
+  background-image: 
+    radial-gradient(ellipse at 0% 50%, rgba(255, 255, 255, 0.15) 0%, transparent 70%),
+    radial-gradient(circle at 100% 0%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
   /* --- END KEY CHANGE --- */
   color: #212529;
   overflow: hidden; /* This is important for the animation */
@@ -21,7 +24,7 @@
   font-weight: 700;
   margin-bottom: 40px;
   text-align: center;
-  color:black;
+  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -44,7 +47,7 @@
 
 .skill-card {
   /* --- KEY CHANGES for semi-transparent card --- */
-  background-color: rgba(255, 255, 255, 0); /* Semi-transparent white */
+  background-color: rgba(255, 255, 255, 0.05); /* Semi-transparent dark card */
 
   /* --- END KEY CHANGES --- */
 
@@ -67,8 +70,8 @@
 /* Hover effect */
 .skill-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-  background-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.2);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .skill-icon {
@@ -81,7 +84,7 @@
 .skill-name {
   font-size: 0.95em;
   font-weight: 500;
-  color: #343a40; /* Kept dark text for readability */
+  color: #e0e0e0; /* Light text for dark mode */
   margin: 0;
 }
 

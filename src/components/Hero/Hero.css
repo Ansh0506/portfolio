@@ -1,4 +1,4 @@
-/* src/components/Hero/Hero.css */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
 
 .hero-container {
   display: flex;
@@ -6,14 +6,19 @@
   justify-content: center;
   width: 100%;
   padding: 8rem 2rem;
-  background-image: url('../../assets/b3.jpg'); /* This is the dot pattern background */
-  background-size: cover;
-  background-position: center;
   overflow: hidden;
+  /* Premium Dark Background with Neutral Soft Light */
+  background-color: #0a0a0a;
+  background-image: 
+    radial-gradient(ellipse at 0% 50%, rgba(255, 255, 255, 0.15) 0%, transparent 70%),
+    radial-gradient(circle at 100% 0%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
 }
-.hii{
+
+.hii {
   margin-left: 10rem;
+  color: #ff5e00; /* Orange accent */
 }
+
 .hero-content-wrapper {
   display: flex;
   align-items: center;
@@ -30,7 +35,9 @@
   transform: skewX(-12deg);
   overflow: hidden;
   border-radius: 12px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  box-shadow: -20px 20px 0px 0px rgba(255, 94, 0, 0.15), 
+              0 15px 35px rgba(0, 0, 0, 0.5);
+  border: 2px solid #2a2a2a;
   flex-shrink: 0;
   
   /* Animation: Starts off-screen to the left */
@@ -57,39 +64,43 @@
 /* --- Animation Final State --- */
 .hero-image-container.animate-in {
   opacity: 1;
-  transform: translateX(0) skewX(-12deg); /* Slides in from left */
-}
-.hero-text-container.animate-in {
-  opacity: 1;
-  transform: translateX(0); /* Slides in from right */
+  transform: translateX(0) skewX(-12deg);
 }
 
+.hero-text-container.animate-in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* --- FIXED: Consolidated H1 Block --- */
 .hero-text-container h1 {
-  font-size: 3.5rem;
+  font-family: 'Playfair Display', serif; /* Elegant, premium font */
+  font-size: 4rem;
   font-weight: 700;
-  color: #1a202c;
+  color: #ffffff;
   margin-bottom: 1rem;
+  letter-spacing: -1px; /* Makes it look tighter and more modern */
 }
 
 .hero-text-container p {
-  font-size: 1.2rem;
-  color: #4a5568;
-  line-height: 1.7;
+  font-size: 1.15rem;
+  color: #cccccc; 
+  line-height: 1.8;
   max-width: 550px;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
-/* --- NEW: Social Icon Styles --- */
+/* --- Social Icon Styles --- */
 .social-icons {
   display: flex;
   align-items: center;
-  gap: 1.5rem; /* Space between icons */
-  margin-bottom: 2rem; /* Space between icons and buttons */
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
 }
 
 .social-icons a {
-  color: #495057; /* Icon color */
-  transition: color 0.2s ease, transform 0.2s ease;
+  color: #888888;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .social-icons a svg {
@@ -98,33 +109,64 @@
 }
 
 .social-icons a:hover {
-  color: var(--primary-color);
-  transform: scale(1.1);
+  color: #ff5e00; 
+  transform: scale(1.15);
 }
-/* --- END: Social Icon Styles --- */
 
+/* --- CTA Button Styles --- */
 .hero-cta-buttons {
   display: flex;
-  gap: 1rem;
+  gap: 1.2rem;
 }
 
-/* --- CTA Button Styles (Unchanged) --- */
-.cta-button { padding: 0.8rem 1.8rem; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; text-decoration: none; }
-.cta-button.primary { background-color: var(--primary-color); color: white; border: 2px solid var(--primary-color); }
-.cta-button.primary:hover { filter: brightness(1.1); transform: translateY(-3px); }
-.cta-button.secondary { background-color: transparent; color: var(--primary-color); border: 2px solid var(--primary-color); }
-.cta-button.secondary:hover { background-color: rgba(0, 123, 255, 0.08); transform: translateY(-3px); }
+.cta-button { 
+  padding: 0.8rem 2rem; 
+  border-radius: 8px; 
+  font-size: 1rem; 
+  font-weight: 600; 
+  cursor: pointer; 
+  transition: all 0.3s ease; 
+  text-decoration: none; 
+}
 
+.cta-button.primary { 
+  background-color: #ff5e00; 
+  color: #ffffff; 
+  border: 2px solid #ff5e00; 
+  box-shadow: 0 4px 15px rgba(255, 94, 0, 0.2);
+}
+
+.cta-button.primary:hover { 
+  background-color: #e65500;
+  border-color: #e65500;
+  transform: translateY(-3px); 
+  box-shadow: 0 6px 20px rgba(255, 94, 0, 0.4);
+}
+
+.cta-button.secondary { 
+  background-color: transparent; 
+  color: #ff5e00; 
+  border: 2px solid #ff5e00; 
+}
+
+.cta-button.secondary:hover { 
+  background-color: rgba(255, 94, 0, 0.08); 
+  transform: translateY(-3px); 
+}
 
 /* --- Responsive Design --- */
 @media (max-width: 768px) {
-  .hero-content-wrapper {
-    flex-direction: column; /* Stacks image on top of text */
+  .hii {
+    margin-left: 0;
     text-align: center;
-    gap: 2rem;
   }
   
-  /* Center the icons on mobile */
+  .hero-content-wrapper {
+    flex-direction: column;
+    text-align: center;
+    gap: 2.5rem;
+  }
+  
   .social-icons {
     justify-content: center;
   }
@@ -134,12 +176,12 @@
   }
   
   .hero-image-container {
-    width: 250px;
-    height: 320px;
+    width: 280px;
+    height: 350px;
     transform: skewX(-8deg);
     margin-bottom: 1rem;
+    box-shadow: -15px 15px 0px 0px rgba(255, 94, 0, 0.15);
     
-    /* Center the animation on mobile */
     opacity: 0;
     transform: translateY(50px) skewX(-8deg);
   }
@@ -149,11 +191,11 @@
     transform: translateY(50px);
   }
   
-  /* Update animation for mobile */
   .hero-image-container.animate-in {
     opacity: 1;
     transform: translateY(0) skewX(-8deg);
   }
+  
   .hero-text-container.animate-in {
     opacity: 1;
     transform: translateY(0);
@@ -161,5 +203,10 @@
   
   .hero-image {
     transform: skewX(8deg) scale(1.2);
+  }
+
+  /* Shrink the big font slightly on mobile so it doesn't break boundaries */
+  .hero-text-container h1 {
+    font-size: 2.8rem;
   }
 }

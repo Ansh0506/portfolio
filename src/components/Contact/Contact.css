@@ -1,57 +1,76 @@
-/* src/components/Contact/Contact.css */
-
 .contact-section {
-  padding-top: 80px; /* Added some top padding back */
-  padding-bottom: 130px;
-  background-image: url('../../assets/b3.jpg'); /* Your background image */
-  background-size: cover;
-  background-position: center;
+  padding-top: 5rem; 
+  padding-bottom: 8rem;
   overflow: hidden;
-  overflow-x: hidden;
+  position: relative;
+  font-family: 'Inter', sans-serif;
+  
+  /* --- The Continuous Background Light --- */
+  background-color: #0a0a0a; /* Exact match to other sections */
+  background-image: 
+    radial-gradient(ellipse at 0% 50%, rgba(255, 255, 255, 0.12) 0%, transparent 80%); /* Stretched vertically */
 }
 
+/* --- Heading & Underline --- */
 .contact-heading {
-  font-size: 2.5em;
+  font-size: 2.4rem;
   font-weight: 700;
-  color: #1a202c; /* Or #ffffff if text is hard to read on background */
+  color: #ffffff;
   text-align: center;
+  position: relative;
+  margin-bottom: 3.5rem;
+}
+
+/* Replace the old solid line with this Ornamental Underline (----o----) */
+.experience-title::after, /* Use .project-home-heading::after, .skills-heading::after, etc. depending on the file */
+.contact-heading::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -20px; /* Pushes it nicely below the text */
+  transform: translateX(-50%);
+  width: 140px; /* Total width of the divider */
+  height: 12px; /* Height to fit the circle */
+  background:
+    /* 1. The hollow circle in the center */
+    radial-gradient(circle, #0a0a0a 3px, #ff5e00 4px, #ff5e00 5px, transparent 6px) center center / 12px 12px no-repeat,
+    /* 2. The left line (fades in from transparent to orange) */
+    linear-gradient(to right, transparent, #ff5e00) left center / 55px 1.5px no-repeat,
+    /* 3. The right line (fades out from orange to transparent) */
+    linear-gradient(to left, transparent, #ff5e00) right center / 55px 1.5px no-repeat;
 }
 
 .contact-subheading {
   font-size: 1.1rem;
-  color: #495057; /* Or #f0f0f0 for light text */
+  color: #cccccc;
   text-align: center;
   max-width: 600px;
-  margin: 0 auto 3rem auto;
+  margin: 0 auto 4rem auto;
 }
 
 .contact-wrapper {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 2rem;
+  grid-template-columns: 1fr 1.5fr; /* Gave the form slightly more room */
+  gap: 3rem;
   opacity: 0;
   transition: opacity 0.8s ease-out;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .contact-wrapper.animate-in {
   opacity: 1;
 }
 
-/* --- Base Card Style (MODIFIED) --- */
+/* --- Containers --- */
 .contact-info-container,
 .contact-form-container {
-  /* --- KEY CHANGES --- */
-  background-color: rgba(255, 255, 255, 0.40); /* Semi-transparent white */
-  backdrop-filter: blur(10px); /* Frosted glass effect */
-  border: 1px solid rgba(255, 255, 255, 0.2); /* Fainter border */
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05); /* Lighter shadow */
-  /* --- END KEY CHANGES --- */
-  
   padding: 2.5rem;
   border-radius: 16px;
+  background-color: #121212; /* Very dark grey card */
+  border: 1px solid #2a2a2a; 
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5); 
 }
-/* --- END Card Style --- */
-
 
 /* --- Column 1: Info --- */
 .contact-info-container {
@@ -69,7 +88,7 @@
   border-radius: 50%;
   overflow: hidden;
   margin: 0 auto 1.5rem auto;
-  border: 3px solid var(--primary-color);
+  border: 3px solid #ff5e00; /* Orange border */
 }
 
 .contact-avatar img {
@@ -81,13 +100,13 @@
 .contact-info-header h3 {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #212529; /* Dark text for readability */
+  color: #ffffff;
   margin-bottom: 0.75rem;
 }
 
 .contact-info-header p {
   font-size: 1rem;
-  color: #495057; /* Dark text */
+  color: #aaaaaa;
   line-height: 1.6;
   margin-bottom: 2rem;
 }
@@ -106,20 +125,20 @@
 }
 
 .info-item:hover {
-  background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent hover */
+  background-color: rgba(255, 255, 255, 0.03);
 }
 
 .info-item svg {
   width: 20px;
   height: 20px;
-  color: var(--primary-color);
+  color: #ff5e00;
   flex-shrink: 0;
 }
 
 .info-item span {
   font-size: 0.95rem;
   font-weight: 500;
-  color: #343a40;
+  color: #cccccc;
 }
 
 .contact-info-socials {
@@ -128,33 +147,37 @@
   gap: 1.5rem;
   margin-top: auto;
   padding-top: 2rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.05); /* Fainter border */
+  border-top: 1px solid #2a2a2a;
 }
 
 .contact-info-socials a {
-  color: #495057;
-  transition: color 0.2s ease, transform 0.2s ease;
+  color: #888888;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
+
 .contact-info-socials a svg {
   width: 24px;
   height: 24px;
 }
+
 .contact-info-socials a:hover {
-  color: var(--primary-color);
-  transform: scale(1.1);
+  color: #ff5e00;
+  transform: scale(1.15);
 }
 
-/* --- Column 2: Form --- */
-.contact-form-container h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #212529;
-  margin-bottom: 0.75rem;
+/* --- Column 2: Form (Matched to Image) --- */
+.contact-form-container {
+  background: transparent; /* Removed card background to match image */
+  border: none;
+  box-shadow: none;
+  padding: 0;
 }
 
-.contact-form-container p {
+.form-title {
   font-size: 1rem;
-  color: #495057;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #ffffff;
   margin-bottom: 2rem;
 }
 
@@ -167,56 +190,66 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  left: 1rem;
-  color: #6c757d;
-  width: 16px;
-  height: 16px;
+  left: 1.2rem;
+  color: #666666; /* Subtle grey icons */
+  width: 14px;
+  height: 14px;
 }
-.form-group textarea ~ .form-icon {
-  top: 1.1rem; 
+
+.textarea-icon {
+  top: 1.5rem; 
   transform: translateY(0);
 }
 
 .form-group input,
 .form-group textarea {
   width: 100%;
-  padding: 0.85rem 1rem;
-  padding-left: 3rem;
-  font-size: 1rem;
-  /* --- Fainter fields to match --- */
-  background-color: rgba(255, 255, 255, 0.7);
-  border: 1px solid rgba(0, 0, 0, 0.1); 
-  border-radius: 8px;
-  color: #212529;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  padding: 1rem 1rem 1rem 3rem;
+  font-size: 0.95rem;
+  background-color: transparent; /* Transparent background */
+  border: 1px solid #444444; /* Crisp grey border */
+  border-radius: 6px;
+  color: #ffffff;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
+
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-  color: #6c757d;
+  color: #777777;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  background-color: rgba(255, 255, 255, 0.9);
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+  border-color: #ff5e00;
+  box-shadow: 0 0 0 1px #ff5e00; /* Sharp orange glow on focus */
 }
 
 .send-button {
-  width: 100%;
-  padding: 0.8rem 1.8rem;
+  padding: 1rem 2.5rem;
   font-size: 1rem;
   font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
+  color: #ffffff;
+  background-color: #ff5e00;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 94, 0, 0.2);
+}
+
+.send-button:hover {
+  background-color: #e65500;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(255, 94, 0, 0.4);
 }
 
 /* --- Responsive --- */
 @media (max-width: 992px) {
   .contact-wrapper {
     grid-template-columns: 1fr;
+  }
+  .contact-form-container {
+    margin-top: 2rem;
   }
 }

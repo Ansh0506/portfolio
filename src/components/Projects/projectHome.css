@@ -1,33 +1,46 @@
 .project-home-section {
   padding: 5rem 2rem;
-  background: linear-gradient(180deg, #eef2ff 0%, #f9fafc 100%);
   font-family: 'Inter', sans-serif;
-  color: #1e1e1e;
+  color: #ffffff;
   position: relative;
   overflow: hidden;
+  /* UPDATED: Stronger white light from the left side */
+  background-color: #0a0a0a;
+  background-image: 
+    radial-gradient(ellipse at 0% 50%, rgba(255, 255, 255, 0.15) 0%, transparent 70%),
+    radial-gradient(circle at 100% 0%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
 }
 
+/* --- Title & Underline --- */
 .project-home-heading {
   text-align: center;
   font-size: 2.4rem;
   font-weight: 700;
-  margin-bottom: 1rem;
-  background: linear-gradient(90deg, #6366f1, #8b5cf6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  margin-bottom: 3.5rem; /* Space for the underline */
+  color: #ffffff; /* Changed to solid white text */
+  position: relative;
 }
 
-.project-home-heading::after {
+/* Replace the old solid line with this Ornamental Underline (----o----) */
+.experience-title::after, /* Use .project-home-heading::after, .skills-heading::after, etc. depending on the file */
+.contact-heading::after {
   content: '';
-  display: block;
-  width: 80px;
-  height: 3px;
-  background: linear-gradient(90deg, #6366f1, #8b5cf6);
-  margin: 0.6rem auto 3rem;
-  border-radius: 3px;
+  position: absolute;
+  left: 50%;
+  bottom: -20px; /* Pushes it nicely below the text */
+  transform: translateX(-50%);
+  width: 140px; /* Total width of the divider */
+  height: 12px; /* Height to fit the circle */
+  background:
+    /* 1. The hollow circle in the center */
+    radial-gradient(circle, #0a0a0a 3px, #ff5e00 4px, #ff5e00 5px, transparent 6px) center center / 12px 12px no-repeat,
+    /* 2. The left line (fades in from transparent to orange) */
+    linear-gradient(to right, transparent, #ff5e00) left center / 55px 1.5px no-repeat,
+    /* 3. The right line (fades out from orange to transparent) */
+    linear-gradient(to left, transparent, #ff5e00) right center / 55px 1.5px no-repeat;
 }
 
-/* Grid */
+/* --- Grid --- */
 .project-home-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -38,27 +51,30 @@
   z-index: 1;
 }
 
-/* Project Cards */
+/* --- Project Cards --- */
 .project-card {
-  background: #ffffff;
+  background: #121212; 
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.1);
-  transition: all 0.35s ease;
-  border: 1px solid rgba(99, 102, 241, 0.08);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5); 
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  border: 1px solid #2a2a2a; 
   cursor: pointer;
+  will-change: transform, opacity;
 }
 
 .project-card:hover {
-  box-shadow: 0 12px 35px rgba(99, 102, 241, 0.15);
+  box-shadow: 0 12px 35px rgba(255, 94, 0, 0.12); 
+  border-color: #ff5e00; 
 }
 
-/* Image */
+/* --- Image --- */
 .project-image-container {
   width: 100%;
   height: 200px;
   overflow: hidden;
-  border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+  position: relative;
+  border-bottom: 1px solid #2a2a2a;
 }
 
 .project-image {
@@ -66,6 +82,7 @@
   height: 100%;
   object-fit: cover;
   transition: transform 0.5s ease;
+  will-change: transform, opacity;
 }
 
 .project-content {
@@ -75,7 +92,7 @@
   justify-content: space-between;
 }
 
-/* Header */
+/* --- Header & Typography --- */
 .project-header {
   display: flex;
   justify-content: space-between;
@@ -86,31 +103,31 @@
 .project-title {
   font-size: 1.2rem;
   font-weight: 600;
-  color: #2c2c2c;
+  color: #ffffff;
   flex: 1;
 }
 
 .project-links a {
-  color: #4f46e5;
+  color: #ff5e00;
   font-size: 1.1rem;
   margin-left: 0.6rem;
   transition: color 0.3s ease, transform 0.2s ease;
 }
 
 .project-links a:hover {
-  color: #8b5cf6;
+  color: #ff7b00;
   transform: translateY(-2px);
 }
 
-/* Description */
+/* --- Description --- */
 .project-description {
-  color: #555;
+  color: #cccccc; 
   font-size: 0.95rem;
   line-height: 1.6;
   margin: 0.8rem 0 1rem;
 }
 
-/* Tags */
+/* --- Tags --- */
 .project-tags {
   display: flex;
   flex-wrap: wrap;
@@ -118,16 +135,16 @@
 }
 
 .project-tag {
-  background: rgba(99, 102, 241, 0.08);
-  color: #4f46e5;
+  background: rgba(255, 94, 0, 0.1);
+  color: #ff5e00;
   font-size: 0.8rem;
   font-weight: 500;
   padding: 0.4rem 0.8rem;
-  border-radius: 10px;
+  border-radius: 6px;
   transition: all 0.3s ease;
 }
 
-/* Button */
+/* --- Button --- */
 .view-more-container {
   text-align: center;
   margin-top: 3rem;
@@ -139,20 +156,22 @@
   font-size: 1rem;
   font-weight: 600;
   color: #fff;
-  background: linear-gradient(90deg, #6366f1, #8b5cf6);
-  border-radius: 50px;
+  background: #ff5e00; 
+  border-radius: 8px; 
   text-decoration: none;
-  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3);
+  box-shadow: 0 4px 15px rgba(255, 94, 0, 0.2);
   transition: all 0.3s ease;
+  border: 2px solid #ff5e00;
 }
 
 .cta-button.primary:hover {
-  background: linear-gradient(90deg, #8b5cf6, #6366f1);
-  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
+  background: #e65500;
+  border-color: #e65500;
+  box-shadow: 0 6px 20px rgba(255, 94, 0, 0.4);
   transform: translateY(-3px);
 }
 
-/* Responsive */
+/* --- Responsive & Performance --- */
 @media (max-width: 768px) {
   .project-home-heading {
     font-size: 2rem;
@@ -174,26 +193,8 @@
     font-size: 0.95rem;
   }
 }
-/* Performance boosts */
-.project-card,
-.project-image,
-.project-home-grid {
-  will-change: transform, opacity;
-}
 
-/* Smooth scroll performance (prevents jank on scroll + animation) */
 .project-home-section {
   backface-visibility: hidden;
   transform: translateZ(0);
-}
-
-/* Add this to your image container */
-.project-image-container {
-  overflow: hidden;
-  position: relative;
-}
-
-/* Reduce shadow recalculation on hover */
-.project-card {
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }

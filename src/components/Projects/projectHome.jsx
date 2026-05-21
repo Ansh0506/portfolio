@@ -9,7 +9,6 @@ import { useIntersectionObserver } from "../../Hooks/useIntersectionObserver";
 const projectsToShow = allProjectData.slice(0, 3);
 
 const ProjectHome = () => {
-  // 👇 Slightly higher threshold = less sensitive trigger (reduces jank)
   const [sectionRef, isVisible] = useIntersectionObserver({ threshold: 0.25 });
 
   const fadeUp = {
@@ -48,7 +47,6 @@ const ProjectHome = () => {
               whileTap={{ scale: 0.99 }}
             >
               <div className="project-image-container">
-                {/* 👇 Lazy loading prevents layout lock */}
                 <motion.img
                   loading="lazy"
                   src={project.image}
@@ -102,9 +100,6 @@ const ProjectHome = () => {
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.3 }}
         >
-          <NavLink to="/projects" className="cta-button primary">
-            View More Projects
-          </NavLink>
         </motion.div>
       </div>
     </section>

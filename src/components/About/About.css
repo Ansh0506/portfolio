@@ -1,187 +1,148 @@
-/* src/components/About/About.css */
-
 .about-section {
-  padding: 80px 0;
-  background-image: url('../../assets/b4.jpg'); /* This is the dot pattern background */
-  background-size: cover;
-  background-position: center;
-  overflow-x: hidden;
-}
-
-.about-content {
+  min-height: 100vh; 
   display: flex;
-  flex-direction: row;
-  align-items: flex-start; /* Aligns items to the top */
-  gap: 4rem;
-}
-
-/* --- Image Column --- */
-.about-image-container {
-  flex-basis: 40%;
-  max-width: 400px;
-}
-
-.about-photo {
-  width: 100%;
-  height: 900px;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-}
-
-/* --- Text Column --- */
-.about-text-container {
-  flex-basis: 60%;
-}
-
-.about-heading {
-  font-size: 2.5em;
-  font-weight: 700;
-  color: #1a202c;
-  margin-bottom: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
   position: relative;
-  display: inline-block;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+  scroll-margin-top: 2rem; 
+  
+  background-color: #0a0a0a;
+  background-image: 
+    radial-gradient(ellipse at 0% 50%, rgba(255, 255, 255, 0.12) 0%, transparent 80%),
+    radial-gradient(circle at 100% 0%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
 }
 
-/* --- THIS IS THE CORRECTED UNDERLINE --- */
+.about-container {
+  width: 100%;
+  max-width: 850px; /* Reverted back to the perfect 850px width */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* --- Heading & Ornamental Underline --- */
+.about-heading {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 4rem;
+  position: relative;
+  text-align: center;
+}
+
 .about-heading::after {
   content: '';
   position: absolute;
-  bottom: -8px; 
-  left: 0;
-  width: 80px; /* Short width */
-  height: 5px; /* Thick */
-  background-color: var(--primary-color);
-  border-radius: 2px;
+  left: 50%;
+  bottom: -20px;
+  transform: translateX(-50%);
+  width: 140px;
+  height: 12px;
+  background:
+    radial-gradient(circle, #0a0a0a 3px, #ff5e00 4px, #ff5e00 5px, transparent 6px) center center / 12px 12px no-repeat,
+    linear-gradient(to right, transparent, #ff5e00) left center / 55px 1.5px no-repeat,
+    linear-gradient(to left, transparent, #ff5e00) right center / 55px 1.5px no-repeat;
 }
-/* --- END OF UNDERLINE STYLE --- */
+
+/* --- Text Content --- */
+.about-text-container {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 3rem; /* Reverted back to the original 3rem padding */
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.about-text-container.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 .about-paragraph {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: var(--text-color);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #cccccc;
   margin-bottom: 1.5rem;
 }
 
 .about-paragraph strong {
-  color: var(--primary-color);
+  color: #ff5e00;
   font-weight: 600;
 }
 
 .about-subheading {
-  font-size: 1.5em;
+  font-size: 1.3rem;
   font-weight: 600;
-  color: #343a40;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  border-left: 4px solid var(--primary-color);
+  color: #ffffff;
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem; 
+  border-left: 3px solid #ff5e00;
   padding-left: 1rem;
 }
 
+/* --- ACHIEVEMENTS LIST (PERFECTLY ALIGNED) --- */
 .achievements-list {
   list-style: none;
   padding-left: 0;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .achievements-list li {
-  font-size: 1.1rem;
-  color: var(--text-color);
-  margin-bottom: 0.75rem;
-  display: flex;
-  align-items: flex-start;
-}
-
-.achievements-list li::before {
-  content: '✓';
-  color: var(--primary-color);
-  font-weight: 700;
-  margin-right: 12px;
-  margin-top: 2px;
-}
-
-/* --- THIS IS THE CORRECTED BUTTON STYLING --- */
-.about-button-container {
-  display: flex;
-  gap: 1rem;
-  margin-top: 2rem;
-}
-
-/* Base style for both buttons */
-.about-button-container .cta-button {
-  padding: 0.8rem 1.8rem;
-  border-radius: 8px;
+  display: grid;
+  grid-template-columns: 200px 1fr; /* Title gets 200px, description gets the rest */
+  gap: 1rem; 
+  align-items: baseline; 
+  
   font-size: 1rem;
+  color: #bbbbbb;
+  margin-bottom: 1.2rem; 
+  line-height: 1.6;
+  position: relative;
+  padding-left: 20px; /* Space for the arrow */
+}
+
+/* The custom arrow */
+.achievements-list li::before {
+  content: '→'; 
+  color: #ff5e00;
+  font-weight: 700;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* Styling for the left column (Title) */
+.highlight-title {
+  color: #ffffff;
   font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  display: inline-block;
 }
 
-/* Primary "Resume" Button */
-.about-button-container .cta-button.primary {
-  background-color: var(--primary-color); 
-  color: white;
-  border: 2px solid var(--primary-color);
-}
-
-.about-button-container .cta-button.primary:hover {
-  filter: brightness(1.1);
-  transform: translateY(-3px);
-  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
-}
-
-/* Secondary "Contact Me" Button */
-.about-button-container .cta-button.secondary {
-  background-color: transparent;
-  color: var(--primary-color);
-  border: 2px solid var(--primary-color);
-}
-
-.about-button-container .cta-button.secondary:hover {
-  background-color: rgba(0, 123, 255, 0.08);
-  transform: translateY(-3px);
-}
-/* --- END OF BUTTON STYLING --- */
-
-/* --- Animation --- */
-.about-image-container, .about-text-container {
-  opacity: 0;
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-.about-image-container {
-  transform: translateX(-50px);
-}
-.about-text-container {
-  transform: translateX(50px);
-}
-.about-image-container.animate-in, .about-text-container.animate-in {
-  opacity: 1;
-  transform: translateX(0);
+/* Styling for the right column (Description) */
+.highlight-desc {
+  color: #cccccc;
 }
 
 /* --- Responsive Design --- */
 @media (max-width: 768px) {
   .about-section {
-    padding: 60px 0;
+    padding: 4rem 1.5rem;
   }
-  .about-content {
-    flex-direction: column;
-    text-align: center;
+  .about-text-container {
+    padding: 2rem 1.5rem;
   }
-  .about-heading::after {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  .about-subheading {
-    text-align: left;
-  }
-  .achievements-list {
-    text-align: left;
-  }
-  .about-button-container {
-    justify-content: center;
+  
+  /* Stack the list on smaller screens */
+  .achievements-list li {
+    grid-template-columns: 1fr; /* Single column on mobile */
+    gap: 0.2rem;
   }
 }

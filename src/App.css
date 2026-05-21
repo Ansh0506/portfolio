@@ -1,13 +1,13 @@
 :root {
-  --bg-color: #ffffff; /* Changed to white */
-  --text-color:#212529; /* Changed to a dark color for readability */
-  --primary-color: #007bff; /* A standard blue that works well on white */
-  --card-color: #f8f9fa;   /* A very light gray for cards */
-  --border-color: #dee2e6; /* A light gray for borders */
-  --glass-bg: rgba(0, 0, 0, 0.03);
-  --glass-border: rgba(0, 0, 0, 0.1);
-  --active-link-bg: rgba(0, 0, 0, 0.08);
-  --active-link-color: #000000;
+  --bg-color: #0f0f0f; /* Dark background */
+  --text-color: #e0e0e0; /* Light text for readability */
+  --primary-color: #ff6b35; /* Vibrant orange for dark mode */
+  --card-color: #1f1f1f;   /* Dark gray for cards */
+  --border-color: #333333; /* Subtle dark borders */
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --active-link-bg: rgba(255, 255, 255, 0.08);
+  --active-link-color: #ffffff;
 }
 
 * {
@@ -51,7 +51,7 @@ main {
 h1, h2, h3 {
   line-height: 1.2;
   margin-bottom: 1rem;
-  color: #1a1d24; /* Changed to a dark color for headings */
+  color: #ffffff; /* Light color for headings in dark mode */
 }
 
 h1 {
@@ -88,6 +88,7 @@ a:hover {
     border-radius: 8px;
     border: 1px solid var(--border-color);
     margin-bottom: 1rem;
+    color: var(--text-color);
 }
 
 

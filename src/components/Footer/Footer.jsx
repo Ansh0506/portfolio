@@ -1,7 +1,7 @@
 import React from 'react';
 import './Footer.css';
 import { 
-  FaGithub, FaLinkedin, FaMedium, FaXTwitter 
+  FaGithub, FaLinkedin, FaEnvelope
 } from "react-icons/fa6"; // Kept the icons you had
 
 const Footer = () => {
@@ -13,20 +13,19 @@ const Footer = () => {
         
         {/* Section 1: Designed by */}
         <div className="footer-design">
-          <p>Designed and Developed by Ritankar Saha</p>
+          <p>Designed and Developed by Ansh kumar</p>
         </div>
 
         {/* Section 2: Copyright */}
         <div className="footer-copyright">
-          <p>Copyright © {currentYear} Ritankar saha</p>
+          <p>Copyright © {currentYear} Ansh kumar</p>
         </div>
 
         {/* Section 3: Socials */}
         <div className="footer-socials">
-          <a href="https://github.com/ritankarsaha" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><FaGithub /></a>
-          <a href="https://www.linkedin.com/in/ritankar-saha-8041b9289/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FaLinkedin /></a>
-          <a href="https://medium.com/@ritankar.saha786" target="_blank" rel="noopener noreferrer" aria-label="Medium"><FaMedium /></a>
-          <a href="https://x.com/ritankarxx" target="_blank" rel="noopener noreferrer" aria-label="X formerly Twitter"><FaXTwitter /></a>
+          <a href="https://github.com/Ansh0506" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><FaGithub /></a>
+          <a href="https://www.linkedin.com/in/ansh-kumar-704244324" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FaLinkedin /></a>
+          <a href="mailto:anshkumar43766@gmail.com" aria-label="Email"><FaEnvelope /></a>
         </div>
 
       </div>

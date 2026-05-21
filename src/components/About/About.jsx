@@ -1,65 +1,35 @@
 import React from 'react';
 import './About.css';
 import { useIntersectionObserver } from '../../Hooks/useIntersectionObserver';
-import Skills from '../Skills/Skills';
-import { NavLink } from 'react-router-dom';
-import myPhoto from '../../assets/p1.jpg';
-import resumePDF from '../../assets/resume.pdf';  // ✅ import your resume
 
 const About = () => {
   const [sectionRef, isVisible] = useIntersectionObserver({ threshold: 0.2 });
 
   return (
     <section id="about" className="about-section" ref={sectionRef}>
-      <div className="container">
-        <div className="about-content">
-          {/* --- Image --- */}
-          <div className={`about-image-container ${isVisible ? 'animate-in' : ''}`}>
-            <img src={myPhoto} alt="Ritankar Saha" className="about-photo" />
-          </div>
+      <div className="container about-container">
+        
+        <h2 className="about-heading">About Me</h2>
 
-          {/* --- Text --- */}
-          <div className={`about-text-container ${isVisible ? 'animate-in' : ''}`}>
-            <h2 className="about-heading">About Me</h2>
-            <p className="about-paragraph">
-              Hello! I'm Ritankar, a passionate engineer driven by the challenge of building robust and scalable systems. My journey into technology began with a deep curiosity for how complex applications work under the hood, leading me to the world of <strong>backend development, cloud infrastructure, and Web3</strong>.
-              <br />As a Software Developer at <strong>Google Summer of Code</strong>, I contribute to enhancing the <strong>SW360–FOSSology</strong> integration by implementing features like RESTful OpenAPI v2 migration, checksum-driven file uploads, and customizable scanning. My work also involves enabling multi-format reporting and streamlining complex processes for efficiency.
-            </p>
+        <div className={`about-text-container ${isVisible ? 'animate-in' : ''}`}>
+          <p className="about-paragraph">
+            Hello! I'm Ansh Kumar Singh, a Computer Science and Engineering undergraduate at IIIT Jabalpur. I specialize in <strong>backend development, security auditing, and modern web frameworks</strong>. My focus is on creating secure, high-performance software—from zero-trust CLI scanners to AI-powered browser automation—that solves complex, real-world problems.
+          </p>
 
-            <h3 className="about-subheading">What Drives Me</h3>
-            <p className="about-paragraph">
-              My core motivation is intellectual curiosity and the desire to solve real-world puzzles with elegant, efficient code. I thrive on architecting solutions for complex problems, with a strong focus on <strong>distributed systems and event-driven architectures</strong>. I believe that the best products are born from a combination of solid engineering, collaborative spirit, and a relentless drive for improvement.
-              <br />As a BTech student in Computer Science and Engineering at IIITDM Jabalpur, I focus on expanding my expertise in <strong>Golang, computer networking, and operating systems</strong>. My passion for backend development and open-source contributions drives me to collaborate on impactful projects and solutions.
-            </p>
+          <h3 className="about-subheading">What Drives Me</h3>
+          <p className="about-paragraph">
+            "I am driven by the challenge of turning complex logic into efficient, scalable systems that eliminate friction and solve real-world problems. Whether I am parsing Abstract Syntax Trees to secure developer supply chains or automating thousands of emails with AI, I love the process of breaking down massive bottlenecks into elegant code. I thrive in that sweet spot where deep technical research meets practical utility—engineering software that isn't just functional, but secure, fast, and resilient from the ground up."
+          </p>
 
-            <h3 className="about-subheading">Key Achievements</h3>
-            <ul className="achievements-list">
-              <li>Contributed 60+ PRs to open-source projects like SW360, FOSSology, KubeStellar, KubeBurner, and Podman (Red-Hat Enterprise)</li>
-              <li>Earned a Machine Learning Specialization Certificate from Andrew Ng's Stanford Courses.</li>
-              <li>Ranked 5th out of 115 at the EIBS (East India Blockchain Summit) for building a Decentralized Healthcare DApp.</li>
-              <li>Won 1st place in the Zero-Trust Hackathon with a Terraform-based IaaS solution on AWS.</li>
-              <li>Solved 800+ problems on platforms like LeetCode, CodeChef, and Codeforces.</li>
-            </ul>
-
-            {/* --- Button Container --- */}
-            <div className="about-button-container">
-              <a 
-                href={resumePDF}  // ✅ use imported path
-                download="Ritankar_Saha_Resume.pdf"  // ✅ force download with file name
-                className="cta-button primary"
-              >
-                Resume
-              </a>
-              <NavLink 
-                to="/contact" 
-                className="cta-button secondary"
-              >
-                Contact Me
-              </NavLink>
-            </div>
-          </div>
+          <h3 className="about-subheading">Key Highlights</h3>
+          <ul className="achievements-list">
+            <li><strong>Major Hackathon Winner:</strong> Placed 3rd Overall at HackByte 4.0 (MLH) out of 120+ teams and won 1st place at the Institute Hackathon.</li>
+            <li><strong>Security & AI Automation:</strong> Engineered Aegis, a zero-trust npm supply-chain scanner, and developed Clustify, an AI-powered email categorization extension.</li>
+            <li><strong>Competitive Programming:</strong> Secured 12th rank out of 500+ participants in the institute-level Newbie 1.0 programming contest.</li>
+            {/* <li><strong>Campus Leadership:</strong> Senior Member & Team Lead for the IIIT Jabalpur Basketball Club, managing strategy, inventory, and mentorship for a 15+ member team.</li> */}
+          </ul>
         </div>
-        <Skills />
+
       </div>
     </section>
   );

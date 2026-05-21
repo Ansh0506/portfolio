@@ -6,7 +6,7 @@ import {
   FaUser, FaPen, FaPaperPlane
 } from "react-icons/fa";
 import { FaXTwitter } from 'react-icons/fa6';
-import avatarPlaceholder from '../../assets/p1.jpg'; // <-- Make sure this path is correct
+import avatarPlaceholder from '../../assets/logo.png';
 
 const Contact = () => {
   const [sectionRef, isVisible] = useIntersectionObserver({ threshold: 0.1 });
@@ -25,11 +25,11 @@ const Contact = () => {
 
         <div className={`contact-wrapper ${isVisible ? 'animate-in' : ''}`}>
           
-          {/* --- Column 1: "Let's Work Together" --- */}
+          {/* --- Column 1: Info --- */}
           <div className="contact-info-container">
             <div className="contact-info-header">
               <div className="contact-avatar">
-                <img src={avatarPlaceholder} alt="Ritankar Saha" />
+                <img src={avatarPlaceholder} alt="Ansh Kumar Singh" />
               </div>
               <h3>Let's Work Together</h3>
               <p>
@@ -41,7 +41,7 @@ const Contact = () => {
             <div className="contact-info-details">
               <div className="info-item">
                 <FaEnvelope />
-                <span>ritankar.saha786@gmail.com</span>
+                <span>anshkumar43766@gmail.com</span>
               </div>
               <div className="info-item">
                 <FaMapMarkerAlt />
@@ -50,34 +50,34 @@ const Contact = () => {
             </div>
 
             <div className="contact-info-socials">
-              <a href="https://github.com/ritankarsaha" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><FaGithub /></a>
-              <a href="https://www.linkedin.com/in/ritankar-saha-8041b9289/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FaLinkedin /></a>
-              <a href="https://x.com/ritankarxx" target="_blank" rel="noopener noreferrer" aria-label="X formerly Twitter"><FaXTwitter /></a>
+              <a href="https://github.com/Ansh0506" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><FaGithub /></a>
+              <a href="https://www.linkedin.com/in/ansh-kumar" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FaLinkedin /></a>
+              <a href="mailto:anshkumar43766@gmail.com" aria-label="Email"><FaEnvelope /></a>
             </div>
           </div>
 
-          {/* --- Column 2: Contact Form --- */}
+          {/* --- Column 2: Form --- */}
           <div className="contact-form-container">
-            <h3>Send me a message</h3>
-            <p>
-              Fill out the form below and I'll get back to you as soon as possible.
-            </p>
+            <h3 className="form-title">SEND ME A MESSAGE</h3>
             <form className="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
               <div className="form-group">
                 <FaUser className="form-icon" />
-                <input type="text" id="name" name="name" placeholder="Your name" required />
+                <input type="text" id="name" name="name" placeholder="Name" required />
               </div>
               <div className="form-group">
                 <FaEnvelope className="form-icon" />
-                <input type="email" id="email" name="email" placeholder="Your email" required />
+                <input type="email" id="email" name="email" placeholder="Email" required />
               </div>
               <div className="form-group">
                 <FaPen className="form-icon" />
-                <textarea id="message" name="message" rows="5" placeholder="Tell me about your project or just say hello..." required></textarea>
+                <input type="text" id="subject" name="subject" placeholder="Subject" required />
               </div>
-              <button type="submit" className="cta-button primary send-button">
-                <span>Send Message</span>
-                <FaPaperPlane />
+              <div className="form-group message-group">
+                <FaPen className="form-icon textarea-icon" />
+                <textarea id="message" name="message" rows="5" placeholder="Message" required></textarea>
+              </div>
+              <button type="submit" className="send-button">
+                <span>Send Message &rarr;</span>
               </button>
             </form>
           </div>

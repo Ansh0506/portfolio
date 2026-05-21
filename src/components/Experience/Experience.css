@@ -1,20 +1,42 @@
 .experience-section {
   padding: 5rem 2rem;
-  background: linear-gradient(180deg, #f9fafc 0%, #eef2ff 100%);
   font-family: 'Inter', sans-serif;
-  color: #1f1f1f;
+  color: #ffffff;
   position: relative;
+  /* UPDATED: Stronger white light from the left side */
+  background-color: #0a0a0a;
+  background-image: 
+    radial-gradient(ellipse at 0% 50%, rgba(255, 255, 255, 0.15) 0%, transparent 70%),
+    radial-gradient(circle at 100% 0%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
 }
 
-/* --- Title --- */
+/* --- Title & Underline --- */
 .experience-title {
   text-align: center;
   font-size: 2.4rem;
   font-weight: 700;
-  margin-bottom: 1.2rem;
-  background: linear-gradient(90deg, #6366f1, #8b5cf6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  margin-bottom: 3.5rem; /* Space for the underline */
+  color: #ffffff; /* Solid white text */
+  position: relative;
+}
+
+/* Replace the old solid line with this Ornamental Underline (----o----) */
+.experience-title::after, /* Use .project-home-heading::after, .skills-heading::after, etc. depending on the file */
+.contact-heading::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -20px; /* Pushes it nicely below the text */
+  transform: translateX(-50%);
+  width: 140px; /* Total width of the divider */
+  height: 12px; /* Height to fit the circle */
+  background:
+    /* 1. The hollow circle in the center */
+    radial-gradient(circle, #0a0a0a 3px, #ff5e00 4px, #ff5e00 5px, transparent 6px) center center / 12px 12px no-repeat,
+    /* 2. The left line (fades in from transparent to orange) */
+    linear-gradient(to right, transparent, #ff5e00) left center / 55px 1.5px no-repeat,
+    /* 3. The right line (fades out from orange to transparent) */
+    linear-gradient(to left, transparent, #ff5e00) right center / 55px 1.5px no-repeat;
 }
 
 /* --- Intro Text --- */
@@ -24,18 +46,19 @@
   margin: 0 auto 4rem;
   font-size: 1rem;
   line-height: 1.8;
-  color: #444;
-  background: rgba(255, 255, 255, 0.6);
+  color: #cccccc; 
+  background: #161616; 
   padding: 1.2rem 1rem;
   border-radius: 12px;
-  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.08);
-  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6);
+  border-left: 4px solid #ff5e00; 
   transition: all 0.3s ease;
 }
 
 .experience-intro:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 18px rgba(99, 102, 241, 0.15);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.8);
+  background: #1c1c1c;
 }
 
 /* --- Timeline --- */
@@ -52,8 +75,8 @@
   top: 0;
   bottom: 0;
   left: 50%;
-  width: 3px;
-  background: linear-gradient(180deg, #6366f1, #8b5cf6);
+  width: 2px;
+  background: #ff5e00; 
   transform: translateX(-50%);
   border-radius: 3px;
 }
@@ -62,18 +85,22 @@
 .experience-card {
   position: relative;
   width: 45%;
-  background: #ffffff;
+  background: #121212; 
   border-radius: 16px;
   padding: 1.8rem;
   margin-bottom: 3rem;
-  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
   transition: all 0.3s ease;
-  border: 1px solid rgba(99, 102, 241, 0.05);
+  border: 1px solid #2a2a2a; 
+  border-left: 4px solid #ff5e00;
+  color: #ffffff;
 }
 
 .experience-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.15);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(255, 94, 0, 0.12); 
+  border-left: 4px solid #ff7b00;
+  border-color: #3a3a3a;
 }
 
 /* Alternate layout */
@@ -89,11 +116,12 @@
 .timeline-dot {
   position: absolute;
   top: 25px;
-  width: 18px;
-  height: 18px;
-  background: linear-gradient(90deg, #6366f1, #8b5cf6);
+  width: 16px;
+  height: 16px;
+  background: #0d0d0d; 
+  border: 3px solid #ff5e00; 
   border-radius: 50%;
-  box-shadow: 0 0 10px rgba(99, 102, 241, 0.6);
+  box-shadow: 0 0 10px rgba(255, 94, 0, 0.3);
 }
 
 .experience-card.left .timeline-dot {
@@ -107,28 +135,30 @@
 /* --- Text Styles --- */
 .exp-title {
   font-size: 1.2rem;
-  font-weight: 600;
-  color: #2d2d2d;
+  font-weight: 700;
+  color: #ffffff; 
   margin-bottom: 0.4rem;
 }
 
 .role {
-  color: #4f46e5;
-  font-weight: 600;
+  color: #ff5e00;
+  font-weight: 700;
   margin-bottom: 0.4rem;
+  font-size: 0.95rem;
 }
 
 .date {
-  color: #777;
+  color: #777777; 
   font-size: 0.9rem;
   margin-bottom: 1rem;
+  font-weight: 500;
 }
 
 .experience-card ul {
   list-style: disc;
   margin-left: 1.5rem;
-  color: #444;
-  line-height: 1.6;
+  color: #bbbbbb; 
+  line-height: 1.8;
 }
 
 /* --- Responsive --- */
